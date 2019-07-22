@@ -1,0 +1,56 @@
+{
+  "name": "jest-fail-on-console-reporter",
+  "description": "Disallow untested console output produced during tests",
+  "version": "0.0.0",
+  "author": "Jamie Mason <jamie@foldleft.io> (https://github.com/JamieMason)",
+  "bugs": "https://github.com/JamieMason/jest-fail-on-console-reporter/issues",
+  "contributors": [
+    "Jamie Mason (https://github.com/JamieMason)"
+  ],
+  "dependencies": {
+    "@jest/reporters": "24.8.0",
+    "@jest/test-result": "24.8.0",
+    "chalk": "2.4.2",
+    "jest-util": "24.8.0"
+  },
+  "devDependencies": {
+    "@jest/types": "24.8.0",
+    "@types/jest": "24.0.16",
+    "@types/node": "12.6.8",
+    "jest": "24.8.0",
+    "prettier": "1.18.2",
+    "rimraf": "2.6.3",
+    "strip-ansi": "5.2.0",
+    "ts-jest": "24.0.2",
+    "tslint": "5.18.0",
+    "typescript": "3.5.3"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://github.com/JamieMason/jest-fail-on-console-reporter#readme",
+  "keywords": [
+    "bdd",
+    "jest",
+    "jest-reporter",
+    "reporter",
+    "tdd",
+    "testing",
+    "tests"
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "repository": "JamieMason/jest-fail-on-console-reporter",
+  "scripts": {
+    "build": "tsc --project .",
+    "format": "prettier --write '**/*.md' './src/**/*.ts'",
+    "lint": "tslint --fix --project ./tsconfig.json",
+    "prebuild": "rimraf dist",
+    "prelint": "npm run format",
+    "prepack": "npm run build",
+    "test": "jest test/index.spec.ts"
+  }
+}
