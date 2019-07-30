@@ -1,7 +1,7 @@
 {
   "name": "jest-fail-on-console-reporter",
   "description": "Disallow untested console output produced during tests",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "author": "Jamie Mason <jamie@foldleft.io> (https://github.com/JamieMason)",
   "bugs": "https://github.com/JamieMason/jest-fail-on-console-reporter/issues",
   "contributors": [
