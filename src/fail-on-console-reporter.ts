@@ -36,7 +36,6 @@ export class FailOnConsoleReporter extends DefaultReporter {
 
   public getLastError() {
     if (this._untestedConsoleOutput.length > 0) {
-      const err = new Error('');
       const deindent = (str: string) => str.replace(/^  /gm, '');
       const FAIL = chalk.reset.inverse.bold.red(` FAIL `);
       const messages = this._untestedConsoleOutput
@@ -51,9 +50,14 @@ export class FailOnConsoleReporter extends DefaultReporter {
           return `${FAIL} ${prettyPath}\n${output}`;
         })
         .join('\n');
-      const footer = `Untested console[error|log|warn] calls are prevented by jest-fail-on-console-reporter`;
-      err.stack = `${messages}\n\n${footer}`;
-      throw err;
+
+      const footer = chalk.red(
+        `Untested console[error|log|warn] calls are prevented by jest-fail-on-console-reporter`
+      );
+
+      this.log(`${messages}\n\n${footer}`);
+
+      return new Error(`${messages}\n\n${footer}`);
     }
     return DefaultReporter.prototype.getLastError.call(this);
   }
